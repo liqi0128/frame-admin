@@ -1,0 +1,126 @@
+.sider-style {
+  display: flex;
+
+  .ant-layout-sider-children {
+    overflow-y: auto;
+  }
+}
+
+.layout-content-style {
+  padding: 16px;
+  margin: 0;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+// 标签
+.layout_tags_view {
+  padding: 10px 16px 0 16px;
+  position: relative;
+  .tags_content {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    transition: transform .3s;
+    color: #000000d9;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    >.item_tab {
+      border-radius: 2px 2px 0 0;
+      margin: 0;
+      padding: 8px 16px;
+      background: #fafafa;
+      border: 1px solid rgba(0,0,0,.06);
+      transition: all .3s cubic-bezier(.645,.045,.355,1);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+      >.anticon{
+        transform: translateX(6px);
+      }
+    }
+    .tab-active{
+      color: #1890ff;
+      background: #fff;
+    }
+  }
+  .contextmenu {
+    margin: 0;
+    background: #fff;
+    z-index: 3000;
+    position: fixed;
+    list-style-type: none;
+    padding: 5px 0;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
+    li {
+      margin: 0;
+      padding: 0px 16px;
+      height: 30px;
+      cursor: pointer;
+      &:hover {
+        background: #eee;
+      }
+    }
+  }
+}
+
+//header
+.header_main{
+  height: inherit;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  >div:nth-of-type(1){
+    flex: auto;
+  }
+  >div:nth-of-type(2){
+    display: flex;
+    align-items: center;
+    >span{
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      margin-right: 16px;
+    }
+  }
+
+}
+
+//消息样式
+.message_frame{
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 300px;
+  .message_frame_content{
+    flex: auto;
+    /* 消息内容css */
+
+  }
+  .message_frame_but{
+    display: flex;
+    border-top: 1px solid rgb(240, 240, 240);
+    >div{
+      flex: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 8px 0 8px;
+      cursor: pointer;
+    }
+    >div:nth-child(1){
+      border-right: 1px solid rgb(240, 240, 240);
+    }
+  }
+}
