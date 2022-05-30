@@ -8,26 +8,18 @@ import store from "./store";
 import'./assets/less/index.less'
 // import 'antd/dist/antd.css';
 // import 'antd/dist/antd.variable.min.css'
-import 'antd/dist/antd.min.css';
+// import 'antd/dist/antd.min.css';
 // import 'antd/dist/antd.dark.css'
-// import { ConfigProvider } from 'antd';
-// ConfigProvider.config({
-//   prefixCls: 'custom',
-//   theme: {
-//     primaryColor: '#000',
-//   },
-// });
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    {/* <ConfigProvider prefixCls="custom"> */}
     <Provider store={store}>
         <BrowserRouter>
           <Router />
         </BrowserRouter>
     </Provider>
-    {/* </ConfigProvider> */}
   </>
 );
 

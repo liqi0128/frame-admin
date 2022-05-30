@@ -17,10 +17,6 @@ export default function AppMain(){
             className="layout-content-style"
           >
             <Outlet></Outlet>
-
-          {/* <div className="content-div">
-
-          </div> */}
           </Content>
         </Layout>
       </Layout>

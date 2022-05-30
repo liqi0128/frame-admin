@@ -46,7 +46,7 @@
       }
     }
     .tab-active{
-      color: #1890ff;
+      color: var(--ant-primary-color);
       background: #fff;
     }
   }
@@ -75,6 +75,9 @@
 }
 
 //header
+.ant-layout-header{
+  background: var(--ant-primary-color);
+}
 .header_main{
   height: inherit;
   color: #fff;
@@ -121,6 +124,35 @@
     }
     >div:nth-child(1){
       border-right: 1px solid rgb(240, 240, 240);
+    }
+  }
+}
+
+.system_setting_style{
+  >div{
+    border-bottom: 1px solid rgb(240, 240, 240);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    // background-color: ;
+    >p{
+      font-weight: 550;
+    }
+    &:nth-of-type(2){
+      >div:nth-of-type(1){
+        display: flex;
+        >div{
+          height:25px;
+          flex:1;
+          margin: 5px;
+          border: 1px solid rgb(240, 240, 240);
+          display:flex;
+          justify-content:center;
+          align-items: center;
+          border-radius: 4px;
+          cursor: pointer;
+          color: #FFF;
+        }
+      }
     }
   }
 }
