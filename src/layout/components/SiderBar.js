@@ -32,7 +32,7 @@ function createItem(items){
 }
 let obj =[
   {label:'组件0',key:'/subset0',icon:<PieChartOutlined />},
-  {label:'组件1',key:'/subset1',icon:<DesktopOutlined />},
+  {label:'组件1',key:'/subset1/123456',icon:<DesktopOutlined />},
   {label:'组件2',key:'/subset2',icon:<ContainerOutlined />},
   {label:'组件3',key:'/test',icon:<MailOutlined />},
   {label:'组件4',key:'/App',icon:<AppstoreOutlined />},
