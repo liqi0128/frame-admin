@@ -3,7 +3,7 @@ import { useLocation, Navigate,matchPath } from 'react-router-dom'
 import { addTag, setSelectKey } from '../store/actions';
 
 // 组件相当于一个拦截器，是否返回被拦截的组件
-async function Interceptor({meta,children,addTag,setSelectKey}) {
+function Interceptor({meta,children,addTag,setSelectKey}) {
 	const location = useLocation()
     if(matchPath(meta.pattern,location.pathname)){
         console.log(location);

@@ -15,8 +15,8 @@ export default function app(state = initState, action) {
         }
     case types.TAGSVIEW_ADD_TAG:
       const tag = action.tag;
-      let index = state.taglist.findIndex(item=>item.key == tag.key)
-      if (index!= -1) {
+      let index = state.taglist.findIndex(item=>item.key === tag.key)
+      if (index!== -1) {
         return state;
       } else {
         return {
