@@ -36,6 +36,21 @@ let constantRouterMap = [
         name:'app',
         component: () => import('../pages/App'),
       },
+      {
+        path: '/UseMemo',
+        name:'UseMemo',
+        component: () => import('../pages/UseMemo'),
+      },
+      {
+        path: '/UseCallback',
+        name:'UseCallback',
+        component: () => import('../pages/UseCallback'),
+      },
+      {
+        path: '/MapPage',
+        name:'MapPage',
+        component: () => import('../pages/MapPage'),
+      },
     ]
   },
   {

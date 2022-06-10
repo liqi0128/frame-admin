@@ -36,6 +36,9 @@ let obj =[
   {label:'组件2',key:'/subset2',icon:<ContainerOutlined />},
   {label:'组件3',key:'/test',icon:<MailOutlined />},
   {label:'组件4',key:'/App',icon:<AppstoreOutlined />},
+  {label:'UseMemo',key:'/UseMemo',icon:<AppstoreOutlined />},
+  {label:'UseCallback',key:'/UseCallback',icon:<AppstoreOutlined />},
+  {label:'MapPage',key:'/MapPage',icon:<AppstoreOutlined />},
 ]
 
 const menus = createItem(obj)
