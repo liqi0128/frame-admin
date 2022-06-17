@@ -36,6 +36,11 @@ let constantRouterMap = [
         name:'app',
         component: () => import('../pages/App'),
       },
+      {
+        path: '/context',
+        name:'app',
+        component: () => import('../pages/ContextDemo'),
+      },
     ]
   },
   {
