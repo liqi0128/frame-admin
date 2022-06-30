@@ -57,6 +57,11 @@ let constantRouterMap = [
         name:'MapPage',
         component: () => import('../pages/MapPage'),
       },
+      {
+        path: '/Useref',
+        name:'Useref',
+        component: () => import('../pages/Useref'),
+      },
     ]
   },
   {

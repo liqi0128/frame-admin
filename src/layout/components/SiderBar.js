@@ -25,7 +25,7 @@ function getItem(label, key, icon, children, type) {
 }
 //处理数据
 function createItem(items){
-  if(!items || items.length == 0) return null
+  if(!items || items.length === 0) return null
   return items.map(item=>{
     return getItem(item.label,item.key,item.icon,createItem(item.children))
   })
@@ -40,13 +40,14 @@ let obj =[
   {label:'UseMemo',key:'/UseMemo',icon:<AppstoreOutlined />},
   {label:'UseCallback',key:'/UseCallback',icon:<AppstoreOutlined />},
   {label:'MapPage',key:'/MapPage',icon:<AppstoreOutlined />},
+  {label:'Useref',key:'/Useref',icon:<AppstoreOutlined />},
 ]
 
 const menus = createItem(obj)
 //根据key获取menu
 const getMenu = (menus, key) => {
 	for (const data of menus) {
-		if (data.key == key) return data
+		if (data.key === key) return data
 		if (data.children) {
 			const res = getMenu(data.children, key)
 			if (res) return res
