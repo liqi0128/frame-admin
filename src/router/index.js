@@ -4,7 +4,6 @@ import routes from './route.config'
 import Nprogress from '../components/Nprogress'
 import Interceptor from './Interceptor'
 
-
 function createRouter(routes) {
 	return routes.map((item, index) => {
 		let condition = !!(item.children && item.children.length > 0)
@@ -16,11 +15,11 @@ function createRouter(routes) {
 				key={index}
 				path={item.path}
 				element={
-                    <Interceptor meta={{pattern:item.path,...meta}}>
-                        <Suspense fallback={<Nprogress>路由懒加载...</Nprogress>}>
-                            <item.element />
-                        </Suspense>
-                    </Interceptor>
+					<Interceptor meta={{pattern:item.path,...meta}}>
+							<Suspense fallback={<Nprogress>路由懒加载...</Nprogress>}>
+									<item.element />
+							</Suspense>
+					</Interceptor>
 				}
 			>
 				{condition && createRouter(item.children)}

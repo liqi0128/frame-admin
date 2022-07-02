@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
-  AppstoreOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import { connect } from 'react-redux'; 
 import { setSelectKey } from '../../store/actions/index';
+import obj from '../menData'
 const { Sider } = Layout;
 
 function getItem(label, key, icon, children, type) {
@@ -30,18 +26,7 @@ function createItem(items){
     return getItem(item.label,item.key,item.icon,createItem(item.children))
   })
 }
-let obj =[
-  {label:'组件0',key:'/subset0',icon:<PieChartOutlined />},
-  {label:'组件1',key:'/subset1/123456',icon:<DesktopOutlined />},
-  {label:'组件2',key:'/subset2',icon:<ContainerOutlined />},
-  {label:'组件3',key:'/test',icon:<MailOutlined />},
-  {label:'组件4',key:'/App',icon:<AppstoreOutlined />},
-  {label:'context',key:'/context',icon:<AppstoreOutlined />},
-  {label:'UseMemo',key:'/UseMemo',icon:<AppstoreOutlined />},
-  {label:'UseCallback',key:'/UseCallback',icon:<AppstoreOutlined />},
-  {label:'MapPage',key:'/MapPage',icon:<AppstoreOutlined />},
-  {label:'Useref',key:'/Useref',icon:<AppstoreOutlined />},
-]
+
 
 const menus = createItem(obj)
 //根据key获取menu

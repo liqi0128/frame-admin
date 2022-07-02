@@ -1,4 +1,4 @@
-import ReactKeepAlive from '../components/ReactKeepAlive'
+import ReactKeepAlive from '@/components/ReactKeepAlive'
 export default function Subset(){
     return (
         // <ReactKeepAlive>

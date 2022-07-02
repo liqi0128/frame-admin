@@ -10,7 +10,7 @@ function Interceptor({meta,children,addTag,setSelectKey}) {
       //无权限跳转
       // return <Navigate to="/" replace={true}/>
     
-      //判断是否添加快捷标签isFastTag
+      //判断是否添加快捷标签isFastTag   暂未想到更好的方法
       if(location.state && location.state.isFastTag){
         Promise.resolve({title:location.state.title,key:location.pathname}).then(res=>{
           addTag(res)
