@@ -3,13 +3,13 @@ import * as echarts from 'echarts';
 import { useEffect } from'react'
 // 折线图
 let foldingOption = {
-  title: {
+  title: { //标题
     text: 'Stacked Line'
   },
-  tooltip: {
+  tooltip: {//提示框
     trigger: 'axis'
   },
-  legend: {
+  legend: {//图例组件
     data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
   },
   grid: {
@@ -18,9 +18,9 @@ let foldingOption = {
     bottom: '3%',
     containLabel: true
   },
-  toolbox: {
+  toolbox: {//工具箱
     feature: {
-      saveAsImage: {}
+      saveAsImage: {}//下载图表 
     }
   },
   xAxis: {
@@ -35,7 +35,7 @@ let foldingOption = {
     {
       name: 'Email',
       type: 'line',
-      stack: 'Total',
+      stack: 'Total',//数据堆叠
       data: [120, 132, 101, 134, 90, 230, 210]
     },
     {
@@ -85,8 +85,8 @@ export default function Echarts(){
       <li>ceries：系列列表。每一个系列通过type决定自己的图表类型（什么类型的图表）</li>
       <li>color：调色盘颜色列表</li>
     </ul>
-    <div id="mainfolding"></div>
+    <div id="mainfolding" className='charts'></div>
     <div></div>
-    <div id=''></div>
+    <div id='' className='charts'></div>
   </div>
 }

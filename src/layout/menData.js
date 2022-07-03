@@ -33,6 +33,7 @@ export default [
       {label:'MapPage',key:'/MapPage',icon:<AppstoreOutlined />},
     ]
   },
+  {label:'大屏可视化',key:'/dataV',icon:<AppstoreOutlined />},
   {
     label:'Echarts',
     key:'/Echarts',icon:<AppstoreOutlined />,

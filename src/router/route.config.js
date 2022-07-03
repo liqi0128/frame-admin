@@ -67,12 +67,22 @@ let constantRouterMap = [
         name:'Echarts',
         component: () => import('../pages/Echarts'),
       },
+      {
+        path: '/dataV',
+        name:'dataV',
+        component: () => import('@/pages/dateV/DataV'),
+      },
     ]
   },
   {
     path: '/app2',
     name:'main',
     component: () => import('../pages/basis/App')
+  },
+  {
+    path: '/dataVECharts',
+    name:'dataVECharts',
+    component: () => import('@/pages/dateV/DataVECharts')
   }
 ]
 //异步获取路由

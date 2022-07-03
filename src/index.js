@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './router/index'
 import { Provider } from "react-redux";
 import store from "./store";
+import '@/assets/js/flexible.js' 
 import'./assets/less/index.less'
 // import 'antd/dist/antd.css';
 // import 'antd/dist/antd.variable.min.css'

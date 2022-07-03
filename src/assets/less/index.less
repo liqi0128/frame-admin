@@ -3,21 +3,23 @@
 // @import "~@ant-design/aliyun-theme/index.less";
 @import '~antd/dist/antd.variable.min.css';
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+*{
+  font-size: 16px;
+}
 #root {
   height: inherit;
   width: inherit;
@@ -37,5 +39,18 @@ code {
   &::-webkit-scrollbar-thumb {
     background: #4e4e4e;
     border-radius: 25px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  html{
+    font-size: 64px !important;
+    width: 1024px !important;
+  }
+}
+@media screen and (min-width:1920px) {
+  html{
+    font-size: 120px !important;
+    
   }
 }
