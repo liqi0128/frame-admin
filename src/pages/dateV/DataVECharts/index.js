@@ -1,5 +1,5 @@
 import './css.less'
-import {monitorData,abnormalData,pointOption} from'./data'
+import {monitorData,abnormalData,pointOption,barOption} from'./data'
 import { useState ,useEffect} from'react'
 import * as echarts from 'echarts';
 
@@ -9,6 +9,12 @@ export default function DataVECharts(){
   useEffect(()=>{
     let myChart = echarts.init(document.getElementById('pointCharts'));
     myChart.setOption(pointOption);
+    let barCharts = echarts.init(document.getElementById('barCharts'))
+    barCharts.setOption(barOption)
+    window.addEventListener('resize',()=>{
+      myChart.resize()
+      barCharts.resize()
+    })
   },[])
 
   return <div className="dataVECharts">
@@ -42,8 +48,8 @@ export default function DataVECharts(){
           {/* 监控区域 */}
           <div className='monitor  panel'>
             <div className='tbs'>
-              <div className={active === 1 && 'active' || ''} onClick={()=>{setActive(1)}}>故障设备监控</div>
-              <div className={active === 2 && 'active' || ''} onClick={()=>{setActive(2)}}>异常设备监控</div>
+              <div className={(active === 1) && ('active') || ('')} onClick={()=>{setActive(1)}}>故障设备监控</div>
+              <div className={(active === 2) && ('active') || ('')} onClick={()=>{setActive(2)}}>异常设备监控</div>
             </div>
             <div className="content">
               <div className="hed">
@@ -113,9 +119,35 @@ export default function DataVECharts(){
           
         </div>
         {/* 中间 */}
-        <div className='column'>2</div>
+        <div className='column'>
+          <div className='mapStatistics'>
+            <div className='mapHed'>设备数据统计</div>
+            <div className='eChartsMap'>
+
+            </div>
+          </div>
+          <div className='nation  panel'>
+          <div className='hed'>全国用户总量统计</div>
+            <div className="content">
+              {/* 柱形图表 */}
+              <div id='barCharts'></div>
+              <div>
+                <div>
+                  <p>120,899</p>
+                  <p>用户总量</p>
+                </div>
+                <div>
+                  <p>248</p>
+                  <p>本月新增</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* 右侧 */}
-        <div className='column'>3</div>
+        <div className='column'>
+          
+        </div>
       </div>
     </div>
   </div>
