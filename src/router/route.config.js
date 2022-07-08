@@ -5,12 +5,10 @@ const layout = () => import('../layout/AppMain')
 let constantRouterMap = [
   {
     path: '/',
-    name:'main',
     component: layout,
     children:[
       {
         path: '/subset0',
-        name:'subset0',
         component: () => import('../pages/basis/Subset'),
         meta: {
             title: '业务常识',
@@ -18,70 +16,68 @@ let constantRouterMap = [
       },
       {
         path: '/subset1/:id',
-        name:'subset1',
         component: () => import('../pages/basis/Subset1'),
       },
       {
         path: '/subset2',
-        name:'subset2',
         component: () => import('../pages/basis/Subset2'),
       },
       {
         path: '/test',
-        name:'test',
         component: () => import('../pages/basis/Test'),
       },
       {
         path: '/App',
-        name:'app',
         component: () => import('../pages/basis/App'),
       },
       {
 
         path: '/context',
-        name:'app',
         component: () => import('../pages/basis/ContextDemo'),
       },
       {
         path: '/UseMemo',
-        name:'UseMemo',
         component: () => import('../pages/basis/UseMemo'),
       },
       {
         path: '/UseCallback',
-        name:'UseCallback',
         component: () => import('../pages/basis/UseCallback'),
       },
       {
         path: '/MapPage',
-        name:'MapPage',
         component: () => import('../pages/MapPage'),
       },
       {
         path: '/Useref',
-        name:'Useref',
+        
         component: () => import('../pages/basis/Useref'),
       },
       {
         path: '/Echarts',
-        name:'Echarts',
         component: () => import('../pages/Echarts'),
       },
       {
         path: '/dataV',
-        name:'dataV',
         component: () => import('@/pages/dateV/DataV'),
       },
     ]
   },
   {
+    path:'/basis',
+    component:layout,
+    children:[
+      {
+        path:'/basis/reactperiod',
+        component: () => import('@/pages/basis/ReactPeriod')
+      },
+    ]
+  },
+  {
     path: '/app2',
-    name:'main',
     component: () => import('../pages/basis/App')
   },
   {
     path: '/dataVECharts',
-    name:'dataVECharts',
     component: () => import('@/pages/dateV/DataVECharts')
   }
 ]

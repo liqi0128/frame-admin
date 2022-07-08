@@ -92,10 +92,10 @@ export const barOption = {
     ]
   ),
   tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
-    }
+    trigger: 'item',
+    // axisPointer: {
+    //   type: 'shadow'
+    // }
   },
   grid: {
     left: '3%',
@@ -159,7 +159,7 @@ export const barOption = {
   ],
   series: [
     {
-      name: 'Direct',
+      name: '用户总量',
       type: 'bar',
       barWidth: '60%',
       data: [10, 52, 200, 334, 390, 330, 220]

@@ -6,38 +6,38 @@
   background-size: 100% 100%;
   .viewport{
     height: inherit;
-    min-width: 1024px;
-    max-width: 1920px;
+    min-width: 12.8rem;
+    max-width: 24rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     .header{
-      height: 45px;
+      height: .5625rem;
       background: url('@/assets/img/bigScreen/header.png') no-repeat;
       background-size: 100% 100%;
       color:#FFF;
       text-align: center;
-      line-height: 35px;
-      font-size: 18px;
+      line-height: .4375rem;
+      font-size: .225rem;
     }
     .main{
       display: flex;
       flex: 1;
       .column{
-        padding: 0 .1rem;
+        padding: 0 .1rem .1rem .1rem;
         flex: 3;
         &:nth-child(2){
           flex: 4;
         }
         .overview{
-          height: 90px;
+          height: 1.125rem;
           color:#FFF;
           >ul{
             display: flex;
             list-style-type: none;
             margin: 0;
             padding: 0;
-            margin-top: 10px;
+            margin-top: .125rem;
             li{
               flex: 1;
               display: flex;
@@ -45,22 +45,22 @@
               align-items: center;
               justify-self: center;
               >div:nth-child(1){
-                font-size: 24px;
+                font-size: .3rem;
               }
               >div:nth-child(2){
-                font-size: 14px;
+                font-size: .175rem;
                 color: #4c9bfd;
                 position: relative;
                 &::before{
                   content: '';
                   display: inline-block;
-                  height: 16px;
-                  width: 8px;
+                  height: .2rem;
+                  width: .1rem;
                   background-color: #006cff;
-                  border-radius: 5px;
+                  border-radius: .0625rem;
                   position: absolute;
-                  left: -13px;
-                  top: 3px;
+                  left: -0.1625rem;
+                  top: .0375rem;
                 }
               }
               &:nth-child(2) >div:nth-child(2)::before{
@@ -76,29 +76,29 @@
           }
         }
         .monitor{
-          height: 270px;
+          height: 3.375rem;
           color:#FFF;
-          margin-top: 20px;
+          margin-top: .25rem;
           display: flex;
           flex-direction: column;
           .tbs{
-            height: 40px;
+            height: .5rem;
             display: flex;
             align-items: center;
             >div{
-              font-size: 14px;
+              font-size: .175rem;
               cursor: pointer;
-              padding: 0 20px;
+              padding: 0 .25rem;
               &:nth-child(1){
                 position: relative;
                 &::after{
                   content: '';
                   display: inline-block;
                   position: absolute;
-                  top: 4px;
+                  top: .05rem;
                   right: 0;
-                  height: 20px;
-                  width: 2px;
+                  height: .25rem;
+                  width: .025rem;
                   background-color: #FFF;
                 }
               }
@@ -112,14 +112,14 @@
             display: flex;
             flex-direction: column;
             .hed{
-              height: 25px;
+              height: .3125rem;
               display: flex;
               align-items: center;
               background-color: rgba(255, 255, 255, .1);
-              padding-left: 20px;
+              padding-left: .25rem;
               color: #61a8ff;
               >.col{
-                font-size: 13px;
+                font-size: .1625rem;
                 font-weight: 550;
                 flex:3;
                 &:nth-child(2){
@@ -138,17 +138,17 @@
                 }
               }
               .row{
-                height: 25px;
+                height: .3125rem;
                 display: flex;
                 align-items: center;
-                padding-left: 20px;
+                padding-left: .25rem;
                 color: #a5e6f3;
                 &:hover{
                   background-color: rgba(255, 255, 255, 0.1);
                   color: #68d8fe;
                 }
                 >.col{
-                  font-size: 13px;
+                  font-size: .1625rem;
                   flex:3;
                   &:nth-child(2){
                     flex: 4;
@@ -159,16 +159,16 @@
           }
         }
         .nation, .point{
-          height: 220px;
-          margin-top: 20px;
+          height: 2.75rem;
+          margin-top: .25rem;
           display: flex;
           flex-direction: column;
-          padding: 0 20px 20px 20px;
+          padding: 0 .25rem .25rem .25rem;
           color: #FFF;
           .hed{
-            height: 40px;
-            font-size: 14px;
-            line-height: 40px;
+            height: .5rem;
+            font-size: .175rem;
+            line-height: .5rem;
           }
           .content{
             flex: auto;
@@ -179,10 +179,10 @@
                 // background-color: pink;
               }
               &:nth-child(2){
-                width: 120px;
+                width: 1.5rem;
                 background-color: rgba(255, 255, 255, .08);
-                border-top-right-radius:30px;
-                border-bottom-left-radius:30px;
+                border-top-right-radius:.375rem;
+                border-bottom-left-radius:.375rem;
                 display: flex;
                 flex-direction: column;
                 >div{
@@ -190,23 +190,23 @@
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
-                  padding-left: 20px;
+                  padding-left: .25rem;
                   >p{
                     margin: 0;
                     &:nth-child(1){
-                      font-size: 18px;
+                      font-size: .225rem;
                     }
                     &:nth-child(2){
-                      font-size: 12px;
+                      font-size: .15rem;
                       color: #4c9bfd;
                       &::before{
                         content: '';
                         display: inline-block;
-                        width: 4px;
-                        height: 10px;
-                        border-radius: 2px;
+                        width: .05rem;
+                        height: .125rem;
+                        border-radius: .025rem;
                         background-color: #006cff;
-                        margin-right: 3px;
+                        margin-right: .0375rem;
                       }
                     }
                   }
@@ -223,8 +223,8 @@
           display: flex;
           flex-direction: column;
           .mapHed{
-            height: 40px;
-            line-height: 40px;
+            height: .5rem;
+            line-height: .5rem;
             color: #FFF;
           }
           .eChartsMap{
@@ -232,13 +232,13 @@
             background-color: rgba(255, 255, 255, .08);
           }
         }
-        
+
       }
       .panel{
-        border: 3px solid transparent;
+        border: .0375rem solid transparent;
         border-image-source: url('@/assets/img/bigScreen/panel.png');
         border-image-slice: 60;
-        border-image-width:50px;
+        border-image-width:.625rem;
       }
       
     }
