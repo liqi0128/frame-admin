@@ -92,10 +92,11 @@ export const barOption = {
     ]
   ),
   tooltip: {
+    backgroundColor:'rgba(50,50,50,0.7)',
     trigger: 'item',
-    // axisPointer: {
-    //   type: 'shadow'
-    // }
+    textStyle:{
+      color: '#fff',
+    },
   },
   grid: {
     left: '3%',
@@ -166,3 +167,123 @@ export const barOption = {
     }
   ]
 };
+
+//销售额统计图表
+export const salesOption ={
+  tooltip: {
+    trigger: 'axis',
+    backgroundColor:'rgba(50,50,50,0.7)',
+    textStyle:{
+      color: '#fff',
+    },
+  },
+  legend: {
+    right:'8%',
+    textStyle:{
+      color:'#FFF',
+      fontSize:10
+    },
+    data: ['预期销售额', '实际销售额']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    top:'20%',
+    borderColor:"#012f4a",
+    containLabel: true,
+    show:true,
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    axisTick: {
+      alignWithLabel: false,
+      // 把y轴的刻度隐藏起来
+      show: false
+    },
+    axisLabel: {
+      color: "#4c9bfd"
+    },
+    // y轴这条线的颜色样式
+    axisLine: {
+      lineStyle: {
+        color: "rgba(0, 240, 255, 0.3)"
+        // width: 3
+      }
+    },
+    // y轴分割线的颜色样式
+    splitLine: {
+      lineStyle: {
+        color: "rgba(0, 240, 255, 0.3)"
+      }
+    },
+    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+  },
+  yAxis: {
+    type: 'value',
+    name:'单位:万',
+    nameTextStyle:{
+      color:'rgba(0, 240, 255, 0.3)',
+      fontSize:10,
+      padding:[0, 0, -10, 20],
+    },
+    axisTick: {
+      alignWithLabel: false,
+      // 把y轴的刻度隐藏起来
+      show: false
+    },
+    axisLabel: {
+      color: "#4c9bfd"
+    },
+    // y轴这条线的颜色样式
+    axisLine: {
+      lineStyle: {
+        color: "rgba(0, 240, 255, 0.3)"
+        // width: 3
+      }
+    },
+    // y轴分割线的颜色样式
+    splitLine: {
+      lineStyle: {
+        color: "rgba(0, 240, 255, 0.3)"
+      }
+    }
+  },
+  series: [
+    {
+      name: '预期销售额',
+      symbol:'circle',
+      type: 'line',
+      smooth:true,
+      data: []
+    },
+    {
+      name: '实际销售额',
+      symbol:'circle',
+      type: 'line',
+      smooth:true,
+      data: []
+    },
+  ]
+};
+
+export const salesData = {
+  year:{
+    expected:[116,417,366,193,352,171,78,259,326,417,328,477],
+    actual:[26,456,69,221,427,40,350,423,140,113,61,464]
+  },
+  season:{
+    expected:[145,252,293,148,66,236,323,379,34,173,162,355],
+    actual:[68,384,79,209,129,117,236,130,311,63,98,34]
+  },
+  month:{
+    expected:[265,163,136,247,250,176,124,146,229,25,260,101],
+    actual:[287,268,128,123,142,157,260,79,119,247,99,242]
+  },
+  week:{
+    expected:[44,156,115,79,156,14,182,22,15,35,99,41],
+    actual:[144,15,61,143,191,82,165,98,131,128,54,153]
+  },
+  
+}

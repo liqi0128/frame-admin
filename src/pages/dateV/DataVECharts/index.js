@@ -1,22 +1,65 @@
 import './css.less'
-import {monitorData,abnormalData,pointOption,barOption} from'./data'
+import {monitorData,abnormalData,pointOption,barOption,salesOption,salesData} from'./data'
 import { useState ,useEffect} from'react'
 import * as echarts from 'echarts';
 
-
+let salesCharts = null //销售额统计图表
+let salesTimer = null
 export default function DataVECharts(){
   const [active ,setActive] = useState(1)
+  const [orderAction,setOrderAction] = useState(1)
+  const [salesAction,setSalesAction] = useState(0)
+
+  let salesArr=['year','season','month','week']
+  
+  const intSalesCharts = (val) =>{
+    salesOption.series[0].data = salesData[salesArr[val]].expected
+    salesOption.series[1].data = salesData[salesArr[val]].actual
+    salesCharts.setOption(salesOption)
+  }
+  //销售额统计切换
+  const switchSales = (val)=>{
+    setSalesAction(val)
+    intSalesCharts(val)
+  }
+  const onMouseEnterSales = ()=>{
+    clearInterval(salesTimer)
+    salesTimer = null
+  }
+  const onMouseLeaveSales = ()=>{
+    autoSwitch()
+  }
+  function autoSwitch(){
+    if(salesTimer === null){
+      salesTimer = setInterval(()=>{
+        setSalesAction(salesAction=>{
+          let index = salesAction + 1
+          if(index == 4){
+            intSalesCharts(0)
+            return 0
+          }else{
+            intSalesCharts(index)
+            return index
+          }
+        })
+      },3000)
+    }
+  }
   useEffect(()=>{
     let myChart = echarts.init(document.getElementById('pointCharts'));
     myChart.setOption(pointOption);
     let barCharts = echarts.init(document.getElementById('barCharts'))
     barCharts.setOption(barOption)
+
+    salesCharts = echarts.init(document.getElementById('salesCharts'))
+    intSalesCharts(0)
+    autoSwitch()//销售额统计3秒切换
     window.addEventListener('resize',()=>{
       myChart.resize()
       barCharts.resize()
+      salesCharts.resize()
     })
   },[])
-
   return <div className="dataVECharts">
     <div className='viewport'>
       <div className='header'>
@@ -146,7 +189,42 @@ export default function DataVECharts(){
         </div>
         {/* 右侧 */}
         <div className='column'>
-          
+          <div className='orderQuantity  panel'>
+            <ul>
+              <li className={(orderAction === 1) && ('orderAction') || ''} onClick={()=>setOrderAction(1)}>365天</li>
+              <li className={(orderAction === 2) && ('orderAction') || ''} onClick={()=>setOrderAction(2)}>90天</li>
+              <li className={(orderAction === 3) && ('orderAction') || ''} onClick={()=>setOrderAction(3)}>30天</li>
+              <li className={(orderAction === 4) && ('orderAction') || ''} onClick={()=>setOrderAction(4)}>24小时</li>
+            </ul>
+            <div>
+              <div>
+                <div>1,987</div>
+                <div>订单量</div>
+              </div>
+              <div>
+                <div>3834</div>
+                <div>销售额(万元)</div>
+              </div>
+            </div>
+          </div>
+          {/* 销售额统计 */}
+          <div className='sales  panel' onMouseEnter={()=>onMouseEnterSales()} onMouseLeave={()=>onMouseLeaveSales()}>
+            <div className='hed'>
+              <div>销售额统计</div>
+              <ul>
+                <li className={(salesAction === 0) && ('salesAction') || ''} onClick={()=>switchSales(0)}>年</li>
+                <li className={(salesAction === 1) && ('salesAction') || ''} onClick={()=>switchSales(1)}>季</li>
+                <li className={(salesAction === 2) && ('salesAction') || ''} onClick={()=>switchSales(2)}>月</li>
+                <li className={(salesAction === 3) && ('salesAction') || ''} onClick={()=>switchSales(3)}>周</li>
+              </ul>
+            </div>
+            <div id='salesCharts'>
+            </div>
+          </div>
+          <div className='channel-schedule'>
+              <div className='panel'></div>
+              <div className='panel'></div>
+          </div>
         </div>
       </div>
     </div>

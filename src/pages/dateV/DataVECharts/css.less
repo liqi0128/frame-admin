@@ -78,7 +78,7 @@
         .monitor{
           height: 3.375rem;
           color:#FFF;
-          margin-top: .25rem;
+          margin-top: .2rem;
           display: flex;
           flex-direction: column;
           .tbs{
@@ -160,7 +160,7 @@
         }
         .nation, .point{
           height: 2.75rem;
-          margin-top: .25rem;
+          margin-top: .2rem;
           display: flex;
           flex-direction: column;
           padding: 0 .25rem .25rem .25rem;
@@ -232,7 +232,129 @@
             background-color: rgba(255, 255, 255, .08);
           }
         }
-
+        .orderQuantity{
+          height: 1.125rem;
+          display: flex;
+          flex-direction: column;
+          padding-left: .2rem;
+          padding-top: .1rem;
+          >ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style-type: none;
+            >li{
+              width: .75rem;
+              height: .2rem;
+              color: #0547a4;
+              font-size: .175rem;
+              line-height: .2rem;
+              text-align: center;
+              border-left: .025rem solid #68d8fe;
+              cursor: pointer;
+              &:nth-child(1){
+                border: 0;
+                width: .625rem;
+                text-align: left;
+              }
+            }
+          }
+          >div{
+            flex: auto;
+            display: flex;
+            color: #fFF;
+            align-items: center;
+            >div{
+              flex: 1;
+              >div:nth-child(1){
+                font-size: .225rem;
+                font-weight: 550;
+              }
+              >div:nth-child(2){
+                font-size: .175rem;
+                color: #0547a4;
+                &::before{
+                  content: '';
+                  display: inline-block;
+                  height: .175rem;
+                  width: .075rem;
+                  border-radius: .0375rem;
+                  background-color: #FF8C00;
+                  transform: translateY(.025rem);
+                  margin-right: .05rem;
+                }
+              }
+              &:nth-child(2)>div:nth-child(2)::before{
+                background-color: #FFFF00;
+              }
+            }
+          }
+          .orderAction{
+            color: #FFF;
+          }
+        }
+        .sales{
+          height: 170px;
+          margin-top: .2rem;
+          padding: .1rem .2rem;
+          display: flex;
+          flex-direction: column;
+          >.hed{
+            height: .25rem;
+            display: flex;
+            >div{
+              color: #FFF;
+              font-size: 0.175rem;
+              padding-right: .125rem;
+              position: relative;
+              &::after{
+                content: '';
+                display: inline-block;
+                height: .175rem;
+                width: .025rem;
+                background-color: #68d8fe;
+                position: absolute;
+                right: 0;
+                top: .05rem;
+              }
+            }
+            >ul{
+              list-style-type: none;
+              display: flex;
+              padding: 0;
+              margin: 0;
+              >li{
+                font-size: 0.175rem;
+                color: #0547a4;
+                width: .25rem;
+                margin: 0 .125rem;
+                text-align: center;
+                border-radius: .025rem;
+                cursor: pointer;
+                transition: all 0.5s linear;
+              }
+            }
+            .salesAction{
+              color: #FFF;
+              background-color: #4c9bfd;
+            }
+          }
+          >#salesCharts{
+            flex: auto;
+          }
+        }
+        .channel-schedule{
+          height: 140px;
+          margin-top: .2rem;
+          // background-color: #6acca3;
+          display: flex;
+          >div{
+            flex: 1;
+            &:nth-child(1){
+              margin-right: 16px;
+            }
+          }
+        }
       }
       .panel{
         border: .0375rem solid transparent;
