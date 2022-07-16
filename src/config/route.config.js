@@ -1,6 +1,6 @@
 //路由配置文件
 
-const layout = () => import('../layout/AppMain')
+const layout = () => import('@/layout/AppMain.js')
 
 let constantRouterMap = [
   {
@@ -12,6 +12,7 @@ let constantRouterMap = [
         component: () => import('../pages/basis/Subset'),
         meta: {
             title: '业务常识',
+            //设置其他权限配置项
         },
       },
       {
@@ -69,6 +70,16 @@ let constantRouterMap = [
       {
         path:'/basis/reactperiod',
         component: () => import('@/pages/basis/ReactPeriod')
+      },
+    ]
+  },
+  {
+    path: '/javaScript',
+    component: layout,
+    children:[
+      {
+        path:'/javaScript/bindcallapply',
+        component: () => import('@/pages/javaScriptBasis/bindCallApply.js')
       },
     ]
   },

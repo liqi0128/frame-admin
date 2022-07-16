@@ -55,9 +55,13 @@ class ReactPeriod extends Component {
   }
   render() {
     console.log('render');
+    let div = <div className='but'>
+      <button onClick={this.onChangeCount.bind(this)}>更新{this.state.count}</button>
+    </div>
+    console.log(div);
     return <div className='reactperiod'>
       <h2>react生命周期</h2>
-      <button onClick={this.onChangeCount.bind(this)}>更新{this.state.count}</button>
+      {div}
       <div>
         <div className="edit-comment-hide">
           <table className="d-block user-select-contain" data-paste-markdown-skip="">

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Suspense,lazy } from 'react'
-import routes from './route.config'
+import routes from '@/config/route.config.js'
 import Nprogress from '../components/Nprogress'
 import Interceptor from './Interceptor'
 

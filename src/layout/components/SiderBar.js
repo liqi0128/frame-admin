@@ -7,7 +7,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { connect } from 'react-redux'; 
 import { setSelectKey } from '../../store/actions/index';
-import obj from '../menData'
+import obj from '@/config/menData.js'
 const { Sider } = Layout;
 
 function getItem(label, key, icon, children, type) {

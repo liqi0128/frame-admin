@@ -10,6 +10,14 @@ import {uuid} from'../utils/tool'
 export default [
   {label:'组件0',key:'/subset0',icon:<PieChartOutlined />},
   {
+    label:'javaScript',
+    key:uuid(),
+    icon:<PieChartOutlined />,
+    children:[
+      {label:'bind,call,apply源码',key:'/javaScript/bindcallapply',icon:<DesktopOutlined />},
+    ]
+  },
+  {
     label:'react基础',
     key:uuid(),
     icon:<DesktopOutlined />,
