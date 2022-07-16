@@ -6,18 +6,20 @@ import {
   barOption,
   salesOption,
   salesData,
-  radarOption,
-  pieOption
 } from'./data'
 import { useState ,useEffect} from'react'
 import * as echarts from 'echarts';
+import ChannelSchedule from './components/ChannelSchedule'
+import Hot from './components/Hot'
 
 let salesCharts = null //销售额统计图表
-let salesTimer = null
+let salesTimer = null //销售额统计
+
 export default function DataVECharts(){
   const [active ,setActive] = useState(1)
   const [orderAction,setOrderAction] = useState(1)
   const [salesAction,setSalesAction] = useState(0)
+  
 
   let salesArr=['year','season','month','week']
   const intSalesCharts = (val) =>{
@@ -30,14 +32,16 @@ export default function DataVECharts(){
     setSalesAction(val)
     intSalesCharts(val)
   }
+  //鼠标移入销售额统计
   const onMouseEnterSales = ()=>{
     clearInterval(salesTimer)
     salesTimer = null
   }
+  //鼠标移出销售额统计
   const onMouseLeaveSales = ()=>{
     autoSwitch()
   }
-  //自动切换
+  //自动切换销售额统计
   function autoSwitch(){
     if(salesTimer === null){
       salesTimer = setInterval(()=>{
@@ -54,6 +58,7 @@ export default function DataVECharts(){
       },3000)
     }
   }
+
   useEffect(()=>{
     let myChart = echarts.init(document.getElementById('pointCharts'));
     myChart.setOption(pointOption);
@@ -63,18 +68,10 @@ export default function DataVECharts(){
     salesCharts = echarts.init(document.getElementById('salesCharts'))
     intSalesCharts(0)
     autoSwitch()//销售额统计3秒切换
-
-    let radarCharts = echarts.init(document.getElementById('radarCharts'))
-    radarCharts.setOption(radarOption)
-
-    let pieCharts = echarts.init(document.getElementById('pieCharts'))
-    pieCharts.setOption(pieOption)
     window.addEventListener('resize',()=>{
       myChart.resize()
       barCharts.resize()
       salesCharts.resize()
-      radarCharts.resize()
-      pieCharts.resize()
     })
     return ()=>{
       clearInterval(salesTimer);
@@ -243,31 +240,9 @@ export default function DataVECharts(){
             <div id='salesCharts'>
             </div>
           </div>
-          <div className='channel-schedule'>
-              <div className='channel  panel'>
-                <div className="hed">渠道分布</div>
-                <div id="radarCharts"></div>
-              </div>
-              <div className='schedule  panel'>
-                <div className="hed">一季度销售进度</div>
-                <div id="pieCharts"></div>
-                <div className='schedule-value'>
-                  <div>50%</div>
-                  <div>
-                    <div>1,321</div>
-                    <div>150%</div>
-                  </div>
-                  <div>
-                    <div>销售额(万元)</div>
-                    <div>同比增长</div>
-                  </div>
-                </div>
-              </div>
-          </div>
+          <ChannelSchedule/>
           {/* 热榜 */}
-          <div className='hotList  panel'>
-
-          </div>
+          <Hot/>
         </div>
       </div>
     </div>
