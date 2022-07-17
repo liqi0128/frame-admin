@@ -81,7 +81,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules":{
+      "no-mixed-operators":"off"
+    }
   },
   "browserslist": {
     "production": [

@@ -9,6 +9,7 @@ import {
 } from'./data'
 import { useState ,useEffect} from'react'
 import * as echarts from 'echarts';
+import EChartsMap from'./components/EChartsMap'
 import ChannelSchedule from './components/ChannelSchedule'
 import Hot from './components/Hot'
 
@@ -47,7 +48,7 @@ export default function DataVECharts(){
       salesTimer = setInterval(()=>{
         setSalesAction(salesAction=>{
           let index = salesAction + 1
-          if(index == 4){
+          if(index === 4){
             intSalesCharts(0)
             return 0
           }else{
@@ -66,7 +67,7 @@ export default function DataVECharts(){
     barCharts.setOption(barOption)
 
     salesCharts = echarts.init(document.getElementById('salesCharts'))
-    intSalesCharts(0)
+
     autoSwitch()//销售额统计3秒切换
     window.addEventListener('resize',()=>{
       myChart.resize()
@@ -78,7 +79,7 @@ export default function DataVECharts(){
       salesTimer = null;
       salesCharts = null;
     }
-  },[])
+  },[])// eslint-disable-line react-hooks/exhaustive-deps
   return <div className="dataVECharts">
     <div className='viewport'>
       <div className='header'>
@@ -184,9 +185,7 @@ export default function DataVECharts(){
         <div className='column'>
           <div className='mapStatistics'>
             <div className='mapHed'>设备数据统计</div>
-            <div className='eChartsMap'>
-
-            </div>
+            <EChartsMap/>
           </div>
           <div className='nation  panel'>
           <div className='hed'>全国用户总量统计</div>
