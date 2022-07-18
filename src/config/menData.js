@@ -27,10 +27,11 @@ export default [
       {label:'组件3',key:'/test',icon:<MailOutlined />},
       {label:'组件4',key:'/App',icon:<AppstoreOutlined />},
       {label:'生命周期',key:'/basis/reactperiod',icon:<AppstoreOutlined />},
-      {label:'context',key:'/context',icon:<AppstoreOutlined />},
-      {label:'UseMemo',key:'/UseMemo',icon:<AppstoreOutlined />},
-      {label:'UseCallback',key:'/UseCallback',icon:<AppstoreOutlined />},
-      {label:'Useref',key:'/Useref',icon:<AppstoreOutlined />},
+      {label:'useContext',key:'/context',icon:<AppstoreOutlined />},
+      {label:'useMemo',key:'/UseMemo',icon:<AppstoreOutlined />},
+      {label:'useCallback',key:'/UseCallback',icon:<AppstoreOutlined />},
+      {label:'useref',key:'/Useref',icon:<AppstoreOutlined />},
+      {label:'useReducer',key:'/basis/UseReducer',icon:<AppstoreOutlined />},
     ]
   },
   {

@@ -71,6 +71,10 @@ let constantRouterMap = [
         path:'/basis/reactperiod',
         component: () => import('@/pages/basis/ReactPeriod')
       },
+      {
+        path:'/basis/UseReducer',
+        component: () => import('@/pages/basis/UseReducer')
+      },
     ]
   },
   {
