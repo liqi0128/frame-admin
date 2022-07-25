@@ -4,6 +4,7 @@ import {
   DesktopOutlined,
   ContainerOutlined,
   MailOutlined,
+  FileTextOutlined
 } from '@ant-design/icons';
 import {uuid} from'../utils/tool'
 
@@ -48,6 +49,15 @@ export default [
     key:'/Echarts',icon:<AppstoreOutlined />,
     children: [
 
+    ]
+  },
+  {
+    label:'博客设置',
+    key:'/blog',
+    icon:<FileTextOutlined />,
+    children:[
+      {label:'文章列表',key:'/blog/articleList',icon:<AppstoreOutlined />},
+      {label:'文章添加',key:'/blog/articleAdd',icon:<AppstoreOutlined />},
     ]
   },
 ]

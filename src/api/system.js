@@ -12,4 +12,4 @@ import {
 } from './manage'
 
 
-export const test =(joinData)=>getJoinAction('/springboot/getDemo/{id}/{name}',joinData)
+// export const test =(joinData)=>getJoinAction('/springboot/getDemo/{id}/{name}',joinData)

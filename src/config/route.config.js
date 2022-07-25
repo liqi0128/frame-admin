@@ -94,6 +94,20 @@ let constantRouterMap = [
   {
     path: '/dataVECharts',
     component: () => import('@/pages/dateV/DataVECharts')
+  },
+  {
+    path:'/blog',
+    component:layout,
+    children:[
+      {
+        path:'/blog/articleList',
+        component: () => import('@/pages/blogAdmin/ArticleList')
+      },
+      {
+        path:'/blog/articleAdd',
+        component: () => import('@/pages/blogAdmin/AddArticle')
+      },
+    ]
   }
 ]
 //异步获取路由
