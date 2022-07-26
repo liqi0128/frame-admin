@@ -4,6 +4,10 @@ const layout = () => import('@/layout/AppMain.js')
 
 let constantRouterMap = [
   {
+    path: '/login',
+    component: () => import('@/pages/Login'),
+  },
+  {
     path: '/',
     component: layout,
     children:[

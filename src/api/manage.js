@@ -1,9 +1,10 @@
 import axios from '../utils/request'
-
+import {storageGet} from'@/utils/storage.js'
 // 请求头
 function getHeader() {
-	let header = {}
-
+	let header = {
+		authorization:storageGet('token')
+	}
 	return header
 }
 
