@@ -16,8 +16,6 @@ function Login() {
   const [loadings,setLoadings] = useState(false)
   //登录
   const onSubmit = ()=>{
-    console.log(accountRef);
-    console.log(passwordRef.current.input.value);
     let account = accountRef.current.input.value
     let password = passwordRef.current.input.value
     if(account == '' && password == ''){

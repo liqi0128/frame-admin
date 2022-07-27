@@ -21,7 +21,6 @@ const err = (error) => {
 };
 
 const res = (response) =>{
-    console.log(response.data);
     if(response.data.code != 0){
       message.error(response.data.msg)
     }

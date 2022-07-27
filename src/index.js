@@ -12,16 +12,20 @@ import '@/assets/js/log.js'
 // import 'antd/dist/antd.variable.min.css'
 // import 'antd/dist/antd.min.css';
 // import 'antd/dist/antd.dark.css'
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
+  <ConfigProvider locale={zhCN}>
     <Provider store={store}>
         <HashRouter>
           <Router />
         </HashRouter>
     </Provider>
+  </ConfigProvider>
   </>
 );
 
