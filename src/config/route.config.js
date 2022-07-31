@@ -111,6 +111,10 @@ let constantRouterMap = [
         path:'/blog/articleAdd',
         component: () => import('@/pages/blogAdmin/AddArticle')
       },
+      {
+        path:'/blog/test',
+        component: () => import('@/pages/blogAdmin/Test')
+      },
     ]
   }
 ]

@@ -58,6 +58,7 @@ export default [
     children:[
       {label:'文章列表',key:'/blog/articleList',icon:<AppstoreOutlined />},
       {label:'文章添加',key:'/blog/articleAdd',icon:<AppstoreOutlined />},
+      {label:'test',key:'/blog/Test',icon:<AppstoreOutlined />},
     ]
   },
 ]

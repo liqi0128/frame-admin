@@ -1,27 +1,26 @@
 
-import { Table, Input, Tabs  } from 'antd';
 import style from'./index.module.less'
-import { articleGetListApi } from'@/api/article.js'
+import { articleGetListApi, articleDeleteApi } from'@/api/article.js'
 import { useState, useEffect } from 'react';
 import { dateFormat } from'@/utils/tool.js'
+import {
+  DeleteOutlined,
+  HighlightOutlined,
+  SnippetsOutlined,
+  QuestionCircleOutlined
+} from '@ant-design/icons';
+import { 
+  Table, 
+  Input, 
+  Tabs,
+  Button,
+  Tooltip,
+  Popconfirm,
+  message
+  } from 'antd';
 const { Search } = Input;
 const { TabPane } = Tabs;
-const columns =[
-  {
-    title: '标题',
-    dataIndex: 'title',
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'creationTime',
-    render: (text) => <span>{dateFormat( new Date(text))}</span>,
-  },
-  {
-    title: '更新时间',
-    dataIndex: 'creationTime',
-    render: (text) => <span>{dateFormat( new Date(text))}</span>,
-  },
-]
+
 
 function ArticleList(){
   const [data,setData] = useState([])
@@ -34,6 +33,49 @@ function ArticleList(){
     keyword:null
   })
 
+  const columns =[
+    {
+      title: '标题',
+      dataIndex: 'title',
+    },
+    {
+      title: '创建时间',
+      dataIndex: 'creationTime',
+      render: (text) => <span>{dateFormat( new Date(text))}</span>,
+    },
+    {
+      title: '更新时间',
+      dataIndex: 'creationTime',
+      render: (text) => <span>{dateFormat( new Date(text))}</span>,
+    },
+    {
+      title:'操作',
+      width:150,
+      render: (_, record) => (
+        <div className={style.tableBut}>
+          <Tooltip placement="top" title="删除">
+            <Popconfirm 
+              title="是否删除?" 
+              placement="bottom" 
+              cancelText="否" 
+              okText="是" 
+              onConfirm={()=>onDelete(record)} 
+              icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+              >
+              <Button type="primary" danger ghost size="small" shape="circle" icon={<DeleteOutlined />} />
+            </Popconfirm>
+          </Tooltip>
+          <Tooltip placement="top" title="编辑">
+            <Button type="primary" size="small" shape="circle" icon={<HighlightOutlined />} />
+          </Tooltip>
+          <Tooltip placement="top" title="详情">
+            <Button type="primary" size="small" shape="circle" icon={<SnippetsOutlined />} />
+          </Tooltip>
+        </div>
+      ),
+    }
+  ]
+  
   //加载
   const onLad=()=>{
     articleGetListApi(param).then(res=>{
@@ -57,6 +99,7 @@ function ArticleList(){
     let status = e === "null"?null:parseInt(e);
     setParam({
       ...param,
+      pageIndex:1,
       status:status
     })
   }
@@ -76,6 +119,19 @@ function ArticleList(){
       keyword:e,
     })
   }
+  //删除
+  const onDelete =(record)=>{
+    console.log(record);
+    articleDeleteApi({articleId:record.articleId}).then(res=>{
+      console.log(res);
+      if(res.code == 0){
+        message.success(res.msg)
+        onLad()
+      }
+    })
+  }
+  //编辑
+
   useEffect(()=>{
     onLad()
   },[param])
