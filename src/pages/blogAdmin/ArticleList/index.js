@@ -3,6 +3,7 @@ import style from'./index.module.less'
 import { articleGetListApi, articleDeleteApi } from'@/api/article.js'
 import { useState, useEffect } from 'react';
 import { dateFormat } from'@/utils/tool.js'
+import { useNavigate } from 'react-router-dom';
 import {
   DeleteOutlined,
   HighlightOutlined,
@@ -23,6 +24,7 @@ const { TabPane } = Tabs;
 
 
 function ArticleList(){
+  const navigate = useNavigate()
   const [data,setData] = useState([])
   const [total,setTotal] = useState(0)
   const [param,setParam] = useState({
@@ -66,7 +68,7 @@ function ArticleList(){
             </Popconfirm>
           </Tooltip>
           <Tooltip placement="top" title="编辑">
-            <Button type="primary" size="small" shape="circle" icon={<HighlightOutlined />} />
+            <Button type="primary" onClick={()=>onEdit(record)} size="small" shape="circle" icon={<HighlightOutlined />} />
           </Tooltip>
           <Tooltip placement="top" title="详情">
             <Button type="primary" size="small" shape="circle" icon={<SnippetsOutlined />} />
@@ -131,7 +133,16 @@ function ArticleList(){
     })
   }
   //编辑
-
+  const onEdit = (record) =>{
+    navigate('/blog/articleEdit',{
+      replace: false,
+      state:{ 
+        isFastTag:true,
+        title:'文章编辑',
+        articleId:record.articleId
+      }
+    })
+  }
   useEffect(()=>{
     onLad()
   },[param])

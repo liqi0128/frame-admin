@@ -17,6 +17,7 @@ export default function app(state = initState, action) {
       const tag = action.tag;
       let index = state.taglist.findIndex(item=>item.key === tag.key)
       if (index!== -1) {
+        state.taglist.splice(index,1,tag)
         return state;
       } else {
         return {

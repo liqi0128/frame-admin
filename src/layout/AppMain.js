@@ -12,7 +12,7 @@ export default function AppMain(){
       <Layout>
         <SiderBar/>
         <Layout>
-          <TagsView/>
+          {/* <TagsView/> */}
           <Content
             className="layout-content-style"
           >

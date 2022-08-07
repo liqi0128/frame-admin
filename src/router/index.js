@@ -15,7 +15,7 @@ function createRouter(routes) {
 				key={index}
 				path={item.path}
 				element={
-					<Interceptor meta={{pattern:item.path,...meta}}>
+					<Interceptor meta={{pattern:item.path,...meta}} key={item.path}>
 							<Suspense fallback={<Nprogress>路由懒加载...</Nprogress>}>
 									<item.element />
 							</Suspense>

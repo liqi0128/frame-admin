@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import MDEditor from '@uiw/react-md-editor';
 import style from'./index.module.less'
-import { articleAddApi } from'@/api/article.js'
+import { articleAddApi, getArticleApi, articleUpdateApi } from'@/api/article.js'
+import { useLocation } from'react-router-dom'
 import {
   Button,
   Form,
@@ -22,37 +23,60 @@ const formLayout = {
 };
 
 function AddArticle(){
+  const location = useLocation()
   const [form] = Form.useForm();
-  const [value, setValue] = useState("**Hello world!!!**");
-  const [fields,setFields] =useState({
-    title:"123",
-    type:"1"
-  })
-  useEffect(()=>{
-
-  },[])
-  const onChange = (text)=>{
-    console.log(text);
-    setValue(text)
+  const [value, setValue] = useState("");
+  const getArticle =()=>{
+    let articleId = location.state.articleId;
+    console.log( location );
+    if (articleId) {
+      getArticleApi({
+        articleId:articleId
+      }).then(res=>{
+        console.log(res);
+        if(res.code == 0){
+          let data = res.data
+          form.setFields([
+            {name:'title',value:data.title},
+            {name:'type',value:data.type.toString() || "1"},
+          ])
+          setValue(data.contents)
+        }
+      })
+    }
   }
+  useEffect(()=>{
+    getArticle()
+  },[])
 
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
-  };
   const onSave = (status) =>{
     form.validateFields().then(res=>{
-      console.log(res);
-      articleAddApi({
-        ...res,
-        status:status,
-        contents:value
-      }).then(res=>{
-        if(res.code == 0){
-          message.success('添加成功')
-          console.log(res);
-        }
-        
-      })
+
+      if(location.state && location.state.articleId){
+        articleUpdateApi({
+          ...res,
+          articleId:location.state.articleId,
+          status:status,
+          contents:value
+        }).then(res=>{
+          if(res.code == 0){
+            message.success('修改成功')
+            console.log(res);
+          }
+        })
+      }else{
+        articleAddApi({
+          ...res,
+          status:status,
+          contents:value
+        }).then(res=>{
+          if(res.code == 0){
+            message.success('添加成功')
+            console.log(res);
+          }
+          
+        })
+      }
     }).catch(err=>{
       console.log(err);
     })
@@ -63,7 +87,10 @@ function AddArticle(){
       form={form}
       name="validate_other"
       {...formLayout}
-      initialValues={fields}
+      initialValues={{
+        title:"",
+        type:"1"
+      }}
     >
       <Row>
         <Col span={12}>
@@ -104,7 +131,7 @@ function AddArticle(){
       <div className={style.editor} data-color-mode="light">
         <MDEditor
             value={value}
-            onChange={onChange}
+            onChange={setValue}
             height={400}
           />
         {/* <MDEditor.Markdown source={value} /> */}
