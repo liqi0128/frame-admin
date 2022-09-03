@@ -1,6 +1,6 @@
 //路由配置文件
 
-const layout = () => import('@/layout/AppMain.js')
+const layout = 'Layout'
 
 let constantRouterMap = [
   {

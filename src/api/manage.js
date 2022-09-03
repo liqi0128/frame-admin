@@ -7,7 +7,21 @@ function getHeader() {
 	}
 	return header
 }
-
+//地址处理
+function urlReplace(str,data){
+	return str.replace(
+			/\:(\w+)/g,
+			(matchingStr, group1) => {
+					if(group1 in data){
+							let s = data[group1]
+							delete data[group1]
+							return s
+					}else{
+							return ''
+					}
+			}
+	)
+}
 //method= {post | put | get | delete}
 export function httpAction(url, parameter, method, header = {}) {
 	header = { ...header, ...getHeader() }
@@ -34,12 +48,9 @@ export function postAction(url, parameter, header = {}) {
  * /user/{id}/name/{age}
  */
 
-export function postJoinAction(url, JoinData, parameter, header = {}) {
+export function postJoinAction(url, parameter, header = {}) {
 	header = { ...header, ...getHeader() }
-	url = url.replace(
-		/\{(\w+)}/g,
-		(matchingStr, group1) => JoinData[group1] || ''
-	)
+	url = urlReplace(url,parameter)
 	return axios({
 		url: url,
 		method: 'post',
@@ -82,12 +93,9 @@ export function deleteAction(url, parameter = {}, header = {}) {
 }
 
 //get参数拼接
-export function getJoinAction(url, JoinData, parameter = {}, header = {}) {
+export function getJoinAction(url, parameter = {}, header = {}) {
 	header = { ...header, ...getHeader() }
-	url = url.replace(
-		/\{(\w+)}/g,
-		(matchingStr, group1) => JoinData[group1] || ''
-	)
+	url = urlReplace(url,parameter)
 	return axios({
 		url: url,
 		method: 'get',
@@ -99,12 +107,9 @@ export function getJoinAction(url, JoinData, parameter = {}, header = {}) {
 /**
  * //delete参数拼接
  */
-export function deleteJoinAction(url, JoinData, header = {}) {
+export function deleteJoinAction(url, parameter, header = {}) {
 	header = { 'X-HTTP-Method-Override': 'DELETE', ...header, ...getHeader() }
-	url = url.replace(
-		/\{(\w+)}/g,
-		(matchingStr, group1) => JoinData[group1] || ''
-	)
+	url = urlReplace(url,parameter)
 	return axios({
 		url: url,
 		method: 'post',

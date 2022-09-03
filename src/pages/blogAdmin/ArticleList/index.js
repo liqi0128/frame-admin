@@ -43,7 +43,10 @@ function ArticleList(){
     {
       title: '创建时间',
       dataIndex: 'creationTime',
-      render: (text) => <span>{dateFormat( new Date(text))}</span>,
+      render: (text) => {
+        console.log(text);
+        return <span>{dateFormat( new Date(text))}</span>
+      },
     },
     {
       title: '更新时间',
@@ -163,7 +166,7 @@ function ArticleList(){
       <Table 
         columns={columns} 
         dataSource={data} 
-        rowKey={record=>record._id}
+        rowKey={record=>record.articleId}
         pagination={{
           total:total,
           showSizeChanger:true,
